@@ -11,8 +11,16 @@ const requestListener = (request, response) => {
   response.setHeader('Content-Type', 'text/html');
   response.statusCode = 200;
   
-  const { method } = request;
+  const { method, url } = request;
   let body = [];
+
+  if (url === '/') {
+    // curl http://localhost:5000/
+  }
+
+  if (url === '/about') {
+    // curl http://localhost:5000/about
+  }
   
   if (method == 'GET') {
     response.end("<h1>Kumaha Damang?</h1>");
