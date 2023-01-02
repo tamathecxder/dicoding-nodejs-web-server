@@ -1,0 +1,41 @@
+# Logs
+logs
+*.log
+
+# Dependency directories
+node_modules/
+
+# Testing
+coverage/
+
+# Production
+build/
+
+# IDEs and editors
+.idea/
+.vscode/
+
+# Databases
+*.sql
+*.sqlite
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# dotenv files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editors
+*.swp
+*~
