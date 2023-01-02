@@ -12,22 +12,24 @@ const requestListener = (request, response) => {
   response.statusCode = 200;
   
   const { method } = request;
-
+  let body = [];
+  
   if (method == 'GET') {
     response.end("<h1>Kumaha Damang?</h1>");
   }
 
   if (method == 'POST') {
-    response.end("<h1>Apa Kabar?</h1>");
+    request.on('data', (chunk) => {
+      body.push(chunk);
+    });
+  
+    request.on('end', () => {
+      body = Buffer.concat(body).toString();
+      const { name } = JSON.parse(body);
+      response.end(`<h1>Hai, ${name}</h1>`);
+    });
   }
 
-  if (method == 'PUT') {
-    response.end("<h1>Piye Kabare?</h1>");
-  }
-
-  if (method == 'DELETE') {
-    response.end("<h1>How Are You?</h1>");
-  }
 }
 
 const server = http.createServer(requestListener);
